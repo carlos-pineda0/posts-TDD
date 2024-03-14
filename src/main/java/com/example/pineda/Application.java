@@ -1,13 +1,13 @@
-package com.example.posts;
+package com.example.pineda;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PostsApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PostsApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
