@@ -3,7 +3,6 @@ package com.example.pineda.post;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -59,6 +58,14 @@ class PostController {
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id) {
         postRepository.deleteById(id);
+    }
+
+
+    @GetMapping("/search")
+    Post findByTitle(@RequestParam String title) {
+        Optional<Post> post = postRepository.findByTitle(title);
+        if (post.isEmpty()) throw new PostNotFoundException();
+        return post.get();
     }
 
 }
